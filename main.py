@@ -12,41 +12,49 @@ class DrawInformation:
     BACKGROUND_COLOR = WHITE
 
     SIDE_PAD = 100
-    TOP_PAD = 150
+    TOP_PAD = 100
 
 
-    def __init__(self, width, height, list):
+    def __init__(self, width, height, lst):
         self.width = width
         self.height = height
 
         self.window = pygame.display.set_mode((width, height))
         pygame.display.set_caption("Sorting Algorithm Visualizer")
-        self.set_list(list)
+        self.set_list(lst)
 
-    def set_list(self, list):
-        self.list = list
-        self.max_val = max(list)
-        self.min_val = min(list)
+    def set_list(self, lst):
+        self.lst = lst
+        self.max_val = max(lst)
+        self.min_val = min(lst)
 
-        self.pixel_width = round((self.width - self.SIDE_PAD) / len(list))
+        self.pixel_width = round((self.width - self.SIDE_PAD) / len(lst))
         self.pixel_height = round((self.height - self.TOP_PAD) / (self.max_val - self.min_val))
         self.start_x = self.SIDE_PAD // 2
 
-def generate_starting_list(n, min_val, max_val)
-    list = []
+def generate_starting_list(n, min_val, max_val):
+    lst = []
 
     for _ in range(n):
         val = random.randint(min_val, max_val)
-        list.append(val)
+        lst.append(val)
 
-        return list
+        return lst
 
 def main():
     run = True
     clock = pygame.time.Clock()
+
+    n = 50
+    min_val = 0
+    max_val = 100
+
+    lst = generate_starting_list(n, min_val, max_val)
+    draw_info = DrawInformation(800, 600, lst)
     while run:
         clock.tick(60)
 
+        
         pygame.display.update()
 
         for event in pygame.event.get():
