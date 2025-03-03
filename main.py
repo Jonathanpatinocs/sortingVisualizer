@@ -12,7 +12,7 @@ class DrawInformation:
     BACKGROUND_COLOR = WHITE
 
     SIDE_PAD = 100
-    TOP_PAD = 100
+    TOP_PAD = 150
 
 
     def __init__(self, width, height, lst):
@@ -39,7 +39,7 @@ def generate_starting_list(n, min_val, max_val):
         val = random.randint(min_val, max_val)
         lst.append(val)
 
-        return lst
+    return lst
 
 def main():
     run = True
@@ -50,7 +50,7 @@ def main():
     max_val = 100
 
     lst = generate_starting_list(n, min_val, max_val)
-    draw_info = DrawInformation(800, 600, lst)
+    draw_info = DrawInformation(600, 400, lst)
     while run:
         clock.tick(60)
 
